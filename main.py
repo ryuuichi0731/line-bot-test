@@ -43,7 +43,7 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='「' + event.message.text + '」って何？')
-     ),
+     )
     {
     "type": "video",
     "originalContentUrl": "https://youtu.be/IpaXhLQFO9M",
