@@ -44,11 +44,25 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text='「' + event.message.text + '」って何？')
      )
-    {
-    "type": "video",
-    "originalContentUrl": "https://youtu.be/IpaXhLQFO9M",
-    "previewImageUrl": "https://drive.google.com/file/d/1AlcsM3Fwv6leBUK8-t1aULMK3jubnBh2/view?usp=sharing"
-}
+    
+    class VideoMessage(Message):
+
+    def __init__(self, id=None, duration=None, content_provider=None, **kwargs):
+
+        super(VideoMessage, self).__init__(id=id, **kwargs)
+
+        self.type = 'video'
+        self.duration = duration
+        self.content_provider = self.get_or_new_from_json_dict(
+            content_provider, ContentProvider
+            {
+            "type": "video",        
+            "originalContentUrl": "https://youtu.be/IpaXhLQFO9M",
+            "previewImageUrl": "https://drive.google.com/file/d/1AlcsM3Fwv6leBUK8-t1aULMK3jubnBh2/view?usp=sharing"
+            }
+
+        )
+
 
 
 if __name__ == "__main__":
