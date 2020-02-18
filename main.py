@@ -43,7 +43,12 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='「' + event.message.text + '」って何？')
-     )
+     ),
+    {
+    "type": "video",
+    "originalContentUrl": "https://youtu.be/IpaXhLQFO9M",
+    "previewImageUrl": "https://drive.google.com/file/d/1AlcsM3Fwv6leBUK8-t1aULMK3jubnBh2/view?usp=sharing"
+}
 
 
 if __name__ == "__main__":
