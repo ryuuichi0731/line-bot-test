@@ -45,7 +45,9 @@ def handle_message(event):
         TextSendMessage(text='「' + event.message.text + '」って何？')
      )
     
-    
+   line_bot_api.reply_message(
+        event.reply_token,
+       [
   {
     "type": "template",
     "altText": "this is a buttons template",
@@ -73,7 +75,8 @@ def handle_message(event):
     "text": "テキストです"
   }
 }
-
+       ]
+   )
   
     
     message_content = line_bot_api.get_message_content(event.message.id)
