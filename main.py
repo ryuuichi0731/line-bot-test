@@ -45,6 +45,41 @@ def handle_message(event):
         TextSendMessage(text='「' + event.message.text + '」って何？')
      )
     
+    
+    {
+  "type": "template",
+  "altText": "this is a image carousel template",
+  "template": {
+      "type": "image_carousel",
+      "columns": [
+          {
+            "imageUrl": "https://d28w2qw7dtr435.cloudfront.net/uploaded/cover_images/images/7878/normal.jpg?1574979551",
+            "action": {
+              "type": "postback",
+              "label": "Buy",
+              "data": "action=buy&itemid=111"
+            }
+          },
+          {
+            "imageUrl": "https://d28w2qw7dtr435.cloudfront.net/uploaded/cover_images/images/7878/normal.jpg?1574979551",
+            "action": {
+              "type": "message",
+              "label": "Yes",
+              "text": "yes"
+            }
+          },
+          {
+            "imageUrl": "https://d28w2qw7dtr435.cloudfront.net/uploaded/cover_images/images/7878/normal.jpg?1574979551",
+            "action": {
+              "type": "uri",
+              "label": "View detail",
+              "uri": "http://example.com/page/222"
+            }
+          }
+      ]
+  }
+}
+
   
     
     message_content = line_bot_api.get_message_content(event.message.id)
