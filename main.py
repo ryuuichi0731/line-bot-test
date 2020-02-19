@@ -47,10 +47,10 @@ def handle_message(event):
     
     
     {
-  "type": "template",
+  "type": "あ",
   "altText": "this is a image carousel template",
   "template": {
-      "type": "image_carousel",
+      "type": "あ",
       "columns": [
           {
             "imageUrl": "https://d28w2qw7dtr435.cloudfront.net/uploaded/cover_images/images/7878/normal.jpg?1574979551",
