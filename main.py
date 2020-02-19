@@ -46,37 +46,31 @@ def handle_message(event):
      )
     
     
-    {
-  "type": "あ",
-  "altText": "this is a image carousel template",
-  "template": {
-      "type": "あ",
-      "columns": [
-          {
-            "imageUrl": "https://d28w2qw7dtr435.cloudfront.net/uploaded/cover_images/images/7878/normal.jpg?1574979551",
-            "action": {
-              "type": "postback",
-              "label": "Buy",
-              "data": "action=buy&itemid=111"
+  {
+    "type": "template",
+    "altText": "this is a buttons template",
+    "template": {
+        "type": "buttons",
+        "actions": [
+            {
+                "type": "message",
+                "label": "アクション 1",
+                "text": "アクション 1"
+            },
+            {
+                "type": "message",
+                "label": "アクション 2",
+                "text": "アクション 2"
+            },
+            {
+                "type": "message",
+                "label": "アクション 3",
+                "text": "アクション 3"
             }
-          },
-          {
-            "imageUrl": "https://d28w2qw7dtr435.cloudfront.net/uploaded/cover_images/images/7878/normal.jpg?1574979551",
-            "action": {
-              "type": "message",
-              "label": "Yes",
-              "text": "yes"
-            }
-          },
-          {
-            "imageUrl": "https://d28w2qw7dtr435.cloudfront.net/uploaded/cover_images/images/7878/normal.jpg?1574979551",
-            "action": {
-              "type": "uri",
-              "label": "View detail",
-              "uri": "http://example.com/page/222"
-            }
-          }
-      ]
+        ],
+    "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
+    "title": "タイトルです",
+    "text": "テキストです"
   }
 }
 
