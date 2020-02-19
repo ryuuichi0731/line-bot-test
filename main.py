@@ -44,6 +44,44 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text='「' + event.message.text + '」って何？')
      )
+    
+    @handler.add(MessageEvent, message=VideoMessage)
+def handle_message(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        VideoSendMessage("type": "ユーザーガイド",
+    "originalContentUrl": "https://youtu.be/IpaXhLQFO9M",
+    "previewImageUrl": "https://drive.google.com/file/d/1AlcsM3Fwv6leBUK8-t1aULMK3jubnBh2/view?usp=sharing")
+     )
+    
+    
+
+
+    message_content = line_bot_api.get_message_content(event.message.id)
+    with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
+        for chunk in message_content.iter_content():
+            tf.write(chunk)
+        tempfile_path = tf.name
+
+    dist_path = tempfile_path + '.' + ext
+    dist_name = os.path.basename(dist_path)
+    os.rename(tempfile_path, dist_path)
+
+    line_bot_api.reply_message(
+        event.reply_token, [
+            TextSendMessage(text='Save content.'),
+            TextSendMessage(text=request.host_url + os.path.join('static', 'tmp', dist_name))
+        ])
+
+
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 if __name__ == "__main__":
