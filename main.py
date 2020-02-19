@@ -45,11 +45,7 @@ def handle_message(event):
         TextSendMessage(text='「' + event.message.text + '」って何？')
      )
     
-  {
-    "type": "video",
-    "originalContentUrl": "https://example.com/original.mp4",
-    "previewImageUrl": "https://example.com/preview.jpg"
-}
+  
     
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
