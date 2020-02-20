@@ -44,39 +44,6 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text='「' + event.message.text + '」って何？')
      )
-    
-   line_bot_api.reply_message(
-        event.reply_token,
-       [
-  {
-    "type": "template",
-    "altText": "this is a buttons template",
-    "template": {
-        "type": "buttons",
-        "actions": [
-            {
-                "type": "message",
-                "label": "アクション 1",
-                "text": "アクション 1"
-            },
-            {
-                "type": "message",
-                "label": "アクション 2",
-                "text": "アクション 2"
-            },
-            {
-                "type": "message",
-                "label": "アクション 3",
-                "text": "アクション 3"
-            }
-        ],
-    "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-    "title": "タイトルです",
-    "text": "テキストです"
-  }
-}
-       ]
-   )
   
     
     message_content = line_bot_api.get_message_content(event.message.id)
