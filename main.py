@@ -62,7 +62,7 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 [
-                    TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。')],
+                    TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。'),
                     TemplateSendMessage({
                       "type": "template",
                       "altText": "this is a carousel template",
@@ -109,9 +109,8 @@ def handle_message(event):
                       }
                     }
                     ),
-            quick_reply=QuickReply(
-                        items=[
-                        QuickReplyButton(
+            
+                QuickReplyButton(
                             action=PostbackAction(label="ショッピングセンター", text="ショッピングセンター")
                         ),
                         QuickReplyButton(
@@ -120,6 +119,7 @@ def handle_message(event):
                         QuickReplyButton(
                             action=PostbackAction(label="情報文化センター", text="情報文化センター")
                         )
+                        ]                        
     
   
     
