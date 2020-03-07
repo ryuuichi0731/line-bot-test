@@ -61,7 +61,7 @@ def handle_message(event):
                 [
                     TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。')
                 ]
-            )
+            ),
     if event.type == "message":
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
