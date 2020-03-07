@@ -3,14 +3,29 @@ from flask import Flask, request, abort
 from linebot import (
     LineBotApi, WebhookHandler
 )
+
 from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
+    SourceUser, SourceGroup, SourceRoom,
+    TemplateSendMessage, ConfirmTemplate, MessageAction,
+    ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
+    PostbackAction, DatetimePickerAction,
+    CameraAction, CameraRollAction, LocationAction,
+    CarouselTemplate, CarouselColumn, PostbackEvent,
+    StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
+    ImageMessage, VideoMessage, AudioMessage, FileMessage,
+    UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent,
+    FlexSendMessage, BubbleContainer, ImageComponent, BoxComponent,
+    TextComponent, SpacerComponent, IconComponent, ButtonComponent,
+    SeparatorComponent, QuickReply, QuickReplyButton
 )
 import os
+import json
 
+#アクセスキーの取得
 app = Flask(__name__)
 
 #環境変数取得
@@ -43,7 +58,103 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='「' + event.message.text + '」って何？')
-     )
+     ),
+    
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    text = event.message.text
+    if event.type == "message":
+        if (event.message.text == "施設選択") or (event.message.text == "施設を選ぶ"):
+            line_bot_api.reply_message(
+                event.reply_token,
+                [
+                    TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。'),
+                    TemplateSendMessage({
+                      "type": "template",
+                      "altText": "this is a carousel template",
+                      "template": {
+                        "type": "carousel",
+                        "actions": [],
+                        "columns": [
+                          {
+                            "thumbnailImageUrl": "https://www.aeon-jreit.co.jp/file/portfolio-f42a862f3c3b544b4e48580a3f2c1f0702b4c23e.jpg?timestamp=1543536000025",
+                             "title": "①",
+                            "text": "ショッピングセンター",
+                            "actions": [
+                              {
+                                "type": "message",
+                                "label": "施設①",
+                                "text": "アクション 01"
+                              }
+                            ]
+                          },
+                          {
+                            "thumbnailImageUrl": "https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
+                            "title": "②",
+                            "text": "けいはんなオープンイノベーションセンター",
+                            "actions": [
+                              {
+                                "type": "message",
+                                "label": "施設②",
+                                "text": "アクション 02"
+                              }
+                            ]
+                          },
+                          {
+                            "thumbnailImageUrl": "https://lighthouse1922.sakura.ne.jp/nlhwww/iccb/wp-content/uploads/parts/about.jpg",
+                            "title": "③",
+                            "text": "文化センター",
+                            "actions": [
+                              {
+                                "type": "message",
+                                "label": "施設③",
+                                "text": "アクション 03"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                    ),
+                    QuickReplyButton({
+                      "type": "text",
+                      "text": "選択肢の中から現在利用している施設を選んでダブルタップしてください",
+                      "quickReply": {
+                        "items": [
+                          {
+                            "type": "action",
+                            "imageUrl": "https://d.kuku.lu/ce8010821a",
+                            "action": {
+                              "type": "message",
+                              "label": "ショッピングセンター",
+                              "text": "shopping center"
+                            }
+                          },
+                          {
+                            "type": "action",
+                            "imageUrl": "https://d.kuku.lu/3715b32de3",
+                            "action": {
+                              "type": "message",
+                              "label": "けいはんなオープンイノベーションセンター",
+                              "text": "open innovation centre"
+                            }
+                          },
+                          {
+                            "type": "action",
+                            "imageUrl": "https://d.kuku.lu/5d0b75f5e6",
+                            "action": {
+                              "type": "message",
+                              "label": "ライトハウス情報文化センター",
+                              "text": "media and communications center"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                    )
+                ] 
+            ),
+    
   
     
     message_content = line_bot_api.get_message_content(event.message.id)
