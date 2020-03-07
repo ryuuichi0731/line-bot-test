@@ -62,7 +62,58 @@ def handle_message(event):
                     TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。')
                 ]
             )
-
+    if event.type == "message":
+        if (event.message.text == "施設を選択"):
+            line_bot_api.reply_message(
+                event.reply_token,
+                [
+                    TemplateSendMessage{
+                      "type": "template",
+                      "altText": "this is a carousel template",
+                      "template": {
+                        "type": "carousel",
+                        "actions": [],
+                        "columns": [
+                          {
+                            "thumbnailImageUrl": "https://www.aeon-jreit.co.jp/file/portfolio-f42a862f3c3b544b4e48580a3f2c1f0702b4c23e.jpg?timestamp=1543536000025",
+                            "title": "①",
+                            "text": "ショッピングセンター",
+                            "actions": [
+                              {
+                                "type": "message",
+                                "label": "施設①",
+                                "text": "アクション 01"
+                              }
+                            ]
+                          },
+                          {
+                            "thumbnailImageUrl": "https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
+                            "title": "②",
+                            "text": "けいはんなオープンイノベーションセンター",
+                            "actions": [
+                              {
+                                "type": "message",
+                                "label": "施設②",
+                                "text": "アクション 02"
+                              }
+                            ]
+                          },
+                          {
+                            "thumbnailImageUrl": "https://lighthouse1922.sakura.ne.jp/nlhwww/iccb/wp-content/uploads/parts/about.jpg",
+                            "title": "③",
+                            "text": "文化センター",
+                            "actions": [
+                              {
+                                "type": "message",
+                                "label": "施設③",
+                                "text": "アクション 03"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                ]
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
         for chunk in message_content.iter_content():
