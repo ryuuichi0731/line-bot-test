@@ -67,15 +67,15 @@ def handle_message(event):
                                 ImageCarouselColumn(image_url='https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg',
                                                     action=DatetimePickerAction(label='施設１',
                                                                                 text='ショッピングセンター',
-                                                                                type='message')),
+                                                                                )),
                                 ImageCarouselColumn(image_url='https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg',
                                                     action=DatetimePickerAction(label='施設2',
                                                                                 text='けいはんなオープンイノベーションセンター',
-                                                                                type='message')),
+                                                                                )),
                                 ImageCarouselColumn(image_url='https://lighthouse1922.sakura.ne.jp/nlhwww/iccb/wp-content/uploads/parts/about.jpg',
                                                     action=DatetimePickerAction(label='施設3',
                                                                                 text='情報文化センター',
-                                                                                type='message'))
+                                                                                ))
                     ])
                     
                       
