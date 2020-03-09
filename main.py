@@ -56,32 +56,29 @@ def callback():
 def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
-            line_bot_api.reply_message(
-                event.reply_token,
-                [
-                    
-                    template_message = TemplateSendMessage(
-                        alt_text='Carousel alt text', template=carousel_template)
-                    line_bot_api.reply_message(event.reply_token, template_message)
-                    image_carousel_template = ImageCarouselTemplate(columns=[
-                                ImageCarouselColumn(image_url='https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg',
-                                                    action=DatetimePickerAction(label='施設１',
-                                                                                type='message',
-                                                                                text='ショッピングセンター'
-                                                                                )),
-                                ImageCarouselColumn(image_url='https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg',
-                                                    action=DatetimePickerAction(label='施設2',
-                                                                                type='message',
-                                                                                text='けいはんなオープンイノベーションセンター'
-                                                                                )),
-                                ImageCarouselColumn(image_url='https://lighthouse1922.sakura.ne.jp/nlhwww/iccb/wp-content/uploads/parts/about.jpg',
-                                                    action=DatetimePickerAction(label='施設3',
-                                                                                type='message',
-                                                                                text='情報文化センター'
-                                                                                ))
-                    ])    
-                ] 
-            )
+            notes = [CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
+                            title="施設１",
+                            text="ショッピングセンター",
+                            actions=[{"type": "message","label": "施設内情報","text": "施設内情報を表示"}]),
+
+             CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
+                            title="施設２",
+                            text="けいはんなオープンイノベーションセンター",
+                            actions=[
+                                {"type": "message","label": "施設内情報","text": "施設内情報を表示"}]),
+
+             CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle04.jpg",
+                            title="施設３",
+                            text="情報文化センター",
+                            actions=[
+                                {"type": "message","label": "施設内情報","text": "施設内情報を表示"}])]
+
+    messages = TemplateSendMessage(
+        alt_text='template',
+        template=CarouselTemplate(columns=notes),
+    )
+
+    line_bot_api.reply_message(event.reply_token, messages=messages)
                            
                 
     message_content = line_bot_api.get_message_content(event.message.id)
