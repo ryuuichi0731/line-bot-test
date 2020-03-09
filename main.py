@@ -60,6 +60,9 @@ def handle_message(event):
                 event.reply_token,
                 [
                     TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。'),
+                    template_message = TemplateSendMessage(
+                        alt_text='Carousel alt text', template=carousel_template)
+                    line_bot_api.reply_message(event.reply_token, template_message)
                     image_carousel_template = ImageCarouselTemplate(columns=[
                                 ImageCarouselColumn(image_url='https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg',
                                                     action=DatetimePickerAction(label='施設１',
@@ -73,11 +76,8 @@ def handle_message(event):
                                                     action=DatetimePickerAction(label='施設3',
                                                                                 text='情報文化センター',
                                                                                 type='message'))
-
-                            ])
-                    　　　　　template_message = TemplateSendMessage(
-                            alt_text='ImageCarousel alt text', template=image_carousel_template)
-                            line_bot_api.reply_message(event.reply_token, template_message)
+                    ])
+                    
                       
                 ] 
             )
