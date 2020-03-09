@@ -61,11 +61,11 @@ def handle_message(event):
                 [
                     TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。'),
                     
-                    CarouselTemplate{
+                    {
                       "type": "template",
                       "altText": "this is a carousel template",
                       "template": {
-                        "type": "carousel",
+                        "type": "image_carousel",
                         "actions": [],
                         "columns": [
                           {
