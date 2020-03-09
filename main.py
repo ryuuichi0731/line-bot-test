@@ -59,17 +59,8 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 [
-                    TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。')
-                ]
-            ),
-            
-@handler.add(MessageEvent, message=TemplateSendMessage)
-def handle_message(event):
-    if event.type == "message":
-        if (event.message.text == "施設を選択"):
-            line_bot_api.reply_message(
-                event.reply_token,
-                [
+                    TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。'),
+                    
                     {
                       "type": "template",
                       "altText": "this is a carousel template",
@@ -116,7 +107,9 @@ def handle_message(event):
                         ]
                       }
                     }
-                ]
+                ] 
+            )
+                
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
         for chunk in message_content.iter_content():
