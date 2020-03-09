@@ -76,6 +76,23 @@ def handle_message(event):
     messages = TemplateSendMessage(
         alt_text='template',
         template=CarouselTemplate(columns=notes),
+        
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(
+                    text='メニュー',
+                    quick_reply=QuickReply(
+                        items=[
+                        QuickReplyButton(
+                            action=PostbackAction(label="ショッピングセンター", text="ショッピングセンター")
+                        ),
+                        QuickReplyButton(
+                            action=PostbackAction(label="オープンイノベーションセンター", text="オープンイノベーションセンター")
+                        ),
+                        QuickReplyButton(
+                            action=PostbackAction(label="情報文化センター", text="情報文化センター")
+                        ),
+                    ])))
     )
 
     line_bot_api.reply_message(event.reply_token, messages=messages)
