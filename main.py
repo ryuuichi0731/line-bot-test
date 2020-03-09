@@ -63,14 +63,14 @@ def handle_message(event):
                 ]
             ),
             
-@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, message=TemplateSendMessage)
 def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
                 event.reply_token,
                 [
-                    TemplateSendMessage{
+                    {
                       "type": "template",
                       "altText": "this is a carousel template",
                       "template": {
