@@ -59,11 +59,11 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 [
-                    TextSendMessage,ImageCarouselTemplate(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。'),
-                    
+                    TextSendMessage(text='メッセージを送信しました。一つしたにあるメッセージをタップするか、トーク画面下にある選択ボタンからお選びください。'),
+                    ImageCarouselTemplate(image_carousel=
                     {
                       "type": "template",
-                      "altText": "this is a carousel template",
+                      "altText": "this is a image carousel template",
                       "template": {
                         "type": "image_carousel",
                         "actions": [],
@@ -109,6 +109,7 @@ def handle_message(event):
                     }
                 ] 
             )
+                    )       
                 
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
