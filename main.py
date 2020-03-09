@@ -76,7 +76,11 @@ def handle_message(event):
     messages = TemplateSendMessage(
         alt_text='template',
         template=CarouselTemplate(columns=notes),
-        
+    )
+    
+    if event.type == "message":
+        if (event.message.text == "施設を選択"):
+      
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(
@@ -93,7 +97,6 @@ def handle_message(event):
                             action=PostbackAction(label="情報文化センター", text="情報文化センター")
                         ),
                     ])))
-    )
 
     line_bot_api.reply_message(event.reply_token, messages=messages)
                            
