@@ -60,22 +60,17 @@ def handle_message(event):
                 event.reply_token, [
                     TextSendMessage(text="下のメッセージから施設を選択してください。"),
                     
-                    notes = CarouselColumn(thumbnail_image_url="https://images.unsplash.com/photo-1481437156560-3205f6a55735?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-                                   title="施設1",
-                                   text="ショッピングセンター",
-                                   actions=[{"type": "message","label": "案内をはじめる","text": "Shopping center"}]),
-                            CarouselColumn(thumbnail_image_url="https://images.unsplash.com/photo-1550974162-3db80acafdda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-                                           title="施設2",
-                                           text="科学技術センター",
-                                           actions=[{"type": "message", "label": "案内をはじめる", "text": "Science and Technology center"}]),
-                            CarouselColumn(thumbnail_image_url="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-                                           title="施設3",
-                                           text="情報文化センター",
-                                           actions=[{"type": "message", "label": "案内をはじめる", "text": "Media and Communication enter"}])]
-                    messages = TemplateSendMessage(
-                        alt_text='template',
-                        template=CarouselTemplate(columns=notes),
-                    )
+                    carousel_template = CarouselTemplate(columns=[
+                        CarouselColumn(text='hoge1', title='fuga1', actions=[
+                            URIAction(label='Go to line.me', uri='https://line.me'),
+                            PostbackAction(label='ping', data='ping')
+                        ]),
+                        CarouselColumn(text='hoge2', title='fuga2', actions=[
+                        PostbackAction(label='ping with text', data='ping', text='ping'),
+                        MessageAction(label='Translate Rice', text='米')
+                        ]),
+                 
+                    ])
                     
                     
                 ]       
