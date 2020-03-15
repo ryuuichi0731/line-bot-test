@@ -59,6 +59,15 @@ def handle_message(event):
             line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="メッセージ情報を送信しました。このメッセージより下の、画像メッセージか、アイコンメッセージをタップして、利用場所を選択してください。")
+            ),
+            
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    if event.type == "message":
+        if (event.message.text == "施設を選択"):
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="メッセージ情報を送信しました。")
             )
     
                 
