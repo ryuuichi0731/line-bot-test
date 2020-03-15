@@ -56,28 +56,10 @@ def callback():
 def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
-            notes = [CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
-                            title="施設１",
-                            text="ショッピングセンター",
-                            actions=[{"type": "message","label": "施設内情報","text": "施設内情報を表示"}]),
-
-             CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
-                            title="施設２",
-                            text="けいはんなオープンイノベーションセンター",
-                            actions=[
-                                {"type": "message","label": "施設内情報","text": "施設内情報を表示"}]),
-
-             CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle04.jpg",
-                            title="施設３",
-                            text="情報文化センター",
-                            actions=[
-                                {"type": "message","label": "施設内情報","text": "施設内情報を表示"}])]
-
-    messages = TemplateSendMessage(
-        alt_text='template',
-        template=CarouselTemplate(columns=notes),
-    ) 
-       line_bot_api.reply_message(event.reply_token, messages=messages)
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="メッセージ情報を送信しました。このメッセージより下の、画像メッセージか、アイコンメッセージをタップして、利用場所を選択してください。")
+            )
     
                 
     message_content = line_bot_api.get_message_content(event.message.id)
