@@ -66,8 +66,8 @@ def handle_message(event):
                             PostbackAction(label='ping', data='ping')
                         ]),
                         CarouselColumn(text='hoge2', title='fuga2', actions=[
-                        PostbackAction(label='ping with text', data='ping', text='ping'),
-                        MessageAction(label='Translate Rice', text='米')
+                            PostbackAction(label='ping with text', data='ping', text='ping'),
+                            MessageAction(label='Translate Rice', text='米')
                         ]),
                  
                     ])
