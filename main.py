@@ -59,7 +59,15 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token, [
                     TextSendMessage(text="下のメッセージから施設を選択してください。"),
-                    TextSendMessage(text="施設を選択してください。")
+                    
+                    image_carousel_template = ImageCarouselTemplate(columns=[
+                    ImageCarouselColumn(image_url='https://images.unsplash.com/photo-1584227134728-a7e48921da0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+                                action=MessageAction(label='Translate Rice', text='米')),
+                    ImageCarouselColumn(image_url='https://images.unsplash.com/photo-1584227134728-a7e48921da0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+                                action=MessageAction(label='Translate Rice', text='米')),
+                    ImageCarouselColumn(image_url='https://images.unsplash.com/photo-1584227134728-a7e48921da0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+                                action=MessageAction(label='Translate Rice', text='米'))
+        ])
                 ]       
             )
                 
