@@ -76,8 +76,8 @@ def handle_message(event):
                             text="情報文化センター",
                             actions=[
                                 {"type": "message", "label": "案内をはじめる", "text": "Media and Communication enter"}])
-                    ]
-                    )
+                     ]
+                     )
 
                      template_message = TemplateSendMessage(
                      alt_text='ImageCarousel alt text', template=image_carousel_template)
