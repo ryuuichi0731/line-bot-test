@@ -57,20 +57,12 @@ def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(
-                text='Quick reply',
-                quick_reply=QuickReply(
-                    items=[
-                        QuickReplyButton(
-                            action=MessageAction(label="label1", data="data1")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="label2", text="text2")
-                        )
-                    ]
-                )                        
-            )                  
+                event.reply_token,[
+                    TextSendMessage(text="下のメッセージから施設を選択してください。"),
+                    TextSendMessage(text="メッセージ２")
+            )
+                ]
+
             
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
