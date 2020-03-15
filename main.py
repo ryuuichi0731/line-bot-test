@@ -76,7 +76,9 @@ def handle_message(event):
     messages = TemplateSendMessage(
         alt_text='template',
         template=CarouselTemplate(columns=notes),
-    )                        
+    ) 
+       line_bot_api.reply_message(event.reply_token, messages=messages)
+    
                 
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
