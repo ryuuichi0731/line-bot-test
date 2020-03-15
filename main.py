@@ -57,6 +57,33 @@ def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
+                event.reply_token, [
+            
+            
+            TextSendMessage(
+                text='下のメッセージから施設を選択してください。',
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=PostbackAction(label="label1", text="1")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="label2", text="2")
+                        ),
+                       
+                        QuickReplyButton(
+                            action=CameraAction(label="label3", text="3")
+                        )
+                        
+                    ])))
+                ]
+            )
+                    
+            
+            
+            
+            
+            line_bot_api.reply_message(
             event.reply_token,
                 TextSendMessage(text="下のメッセージから施設を選択してください。")
             )
