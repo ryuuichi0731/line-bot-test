@@ -57,9 +57,10 @@ def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="メッセージ情報を送信しました。このメッセージより下の、画像メッセージか、アイコンメッセージをタップして、利用場所を選択してください。"),
-                notes = [CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle02.jpg",
+            event.reply_token,[
+            TextSendMessage{text="メッセージ情報を送信しました。下のメッセージをタップして、利用場所を選択してください。"},
+            
+            {notes = [CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle02.jpg",
                             title="【ReleaseNote】トークルームを実装しました。",
                             text="creation(創作中・考え中の何かしらのモノ・コト)に関して、意見を聞けるようにトークルーム機能を追加しました。",
                             actions=[{"type": "message","label": "サイトURL","text": "https://renttle.jp/notes/kota/7"}]),
@@ -80,7 +81,9 @@ def handle_message(event):
                     alt_text='template',
                     template=CarouselTemplate(columns=notes),
                 )
-            )
+            }
+            ]                 
+            )            
         
                 
     message_content = line_bot_api.get_message_content(event.message.id)
