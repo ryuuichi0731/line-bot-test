@@ -76,35 +76,7 @@ def handle_message(event):
     messages = TemplateSendMessage(
         alt_text='template',
         template=CarouselTemplate(columns=notes),
-    )
-    line_bot_api.reply_message(event.reply_token, messages=messages)
-    
-    if event.type == "message":
-        if (event.message.text == "施設を選択"):
-      
-        
-                TextSendMessage(
-                    text='メニュー',
-                    botann = [QuickReply(
-                        items=[
-                        QuickReplyButton(
-                            action=PostbackAction(label="ショッピングセンター", text="ショッピングセンター")
-                        ),
-                        QuickReplyButton(
-                            action=PostbackAction(label="オープンイノベーションセンター", text="オープンイノベーションセンター")
-                        ),
-                        QuickReplyButton(
-                            action=PostbackAction(label="情報文化センター", text="情報文化センター")
-                        ),
-                    ])))
-         messages = QuickReply(
-        alt_text='QuickReply',
-        quick_reply=QuickReply(QuickReply=botann),
-    )
-    line_bot_api.reply_message(event.reply_token, messages=messages)
-
-    
-                           
+    )                        
                 
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
