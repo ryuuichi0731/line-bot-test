@@ -77,15 +77,7 @@ def handle_message(event):
                 ])))
                 ]
             )    
-    
-            line_bot_api.reply_message(
-            event.reply_token,
-                TextSendMessage(text="下のメッセージから施設を選択してください。")
-            )
             
-            
-        
-                
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
         for chunk in message_content.iter_content():
