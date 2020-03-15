@@ -56,34 +56,9 @@ def callback():
 def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
-            line_bot_api.reply_message(
-            event.reply_token,[
-            TextSendMessage{text="メッセージ情報を送信しました。下のメッセージをタップして、利用場所を選択してください。"},
+            replyMessage(event.replyToken, [{type: "text", text: "第一のメッセージ"}, {type: "text", text: '第二のメッセージ'}])
             
-            {notes = [CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle02.jpg",
-                            title="【ReleaseNote】トークルームを実装しました。",
-                            text="creation(創作中・考え中の何かしらのモノ・コト)に関して、意見を聞けるようにトークルーム機能を追加しました。",
-                            actions=[{"type": "message","label": "サイトURL","text": "https://renttle.jp/notes/kota/7"}]),
-
-             CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle03.jpg",
-                            title="ReleaseNote】創作中の活動を報告する機能を追加しました。",
-                            text="創作中や考え中の時点の活動を共有できる機能を追加しました。",
-                            actions=[
-                                {"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/6"}]),
-
-             CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle04.jpg",
-                            title="【ReleaseNote】タグ機能を追加しました。",
-                            text="「イベントを作成」「記事を投稿」「本を登録」にタグ機能を追加しました。",
-                            actions=[
-                                {"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/5"}])]
-
-                messages = TemplateSendMessage(
-                    alt_text='template',
-                    template=CarouselTemplate(columns=notes),
-                )
-            }
-            ]                 
-            )            
+            
         
                 
     message_content = line_bot_api.get_message_content(event.message.id)
