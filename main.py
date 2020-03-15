@@ -67,7 +67,7 @@ def handle_message(event):
                                 action=MessageAction(label='Translate Rice', text='米')),
                     ImageCarouselColumn(image_url='https://images.unsplash.com/photo-1584227134728-a7e48921da0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
                                 action=MessageAction(label='Translate Rice', text='米'))
-        ])
+                    ])
                 ]       
             )
                 
