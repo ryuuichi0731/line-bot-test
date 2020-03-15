@@ -56,12 +56,7 @@ def callback():
 def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
-            line_bot_api.reply_message(
-            event.reply_token,
-                TextSendMessage[{text="下のメッセージより利用している施設を選択してください。"},{text="施設を選択してください。"}]
-            )
-
-            
+            replyMessage(event.replyToken, [{type: "text", text: "第一のメッセージ"}, {type: "text", text: '第二のメッセージ'}])            
             
         
                 
