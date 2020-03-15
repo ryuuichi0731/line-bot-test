@@ -60,7 +60,7 @@ def handle_message(event):
                 event.reply_token, [
                     TextSendMessage(text="下のメッセージから施設を選択してください。"),
                     
-                    CarouselColumn(thumbnail_image_url="https://images.unsplash.com/photo-1481437156560-3205f6a55735?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+                    notes = CarouselColumn(thumbnail_image_url="https://images.unsplash.com/photo-1481437156560-3205f6a55735?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
                                    title="施設1",
                                    text="ショッピングセンター",
                                    actions=[{"type": "message","label": "案内をはじめる","text": "Shopping center"}]),
