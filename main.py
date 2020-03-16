@@ -59,19 +59,20 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token, [
                     TextSendMessage(text="下のメッセージから施設を選択してください。"),
+                    image_carousel_template = ImageCarouselTemplate(columns=[
+            　　　　　    ImageCarouselColumn(image_url='https://via.placeholder.com/1024x1024',
+                                             action=DatetimePickerAction(label='datetime',
+                                             data='datetime_postback',
+                                             mode='datetime')),
+                         ImageCarouselColumn(image_url='https://via.placeholder.com/1024x1024',
+                                             action=DatetimePickerAction(label='date',
+                                             data='date_postback',
+                                             mode='date'))
                     
-                    carousel_template = CarouselTemplate(columns=[
-                        CarouselColumn(text='hoge1', title='fuga1', actions=[
-                            URIAction(label='Go to line.me', uri='https://line.me'),
-                            PostbackAction(label='ping', data='ping')
-                        ]),
-                        CarouselColumn(text='hoge2', title='fuga2', actions=[
-                            PostbackAction(label='ping with text', data='ping', text='ping'),
-                            MessageAction(label='Translate Rice', text='米')
-                        ]),
-                 
                     ])
-                    
+        template_message = TemplateSendMessage(
+            alt_text='ImageCarousel alt text', template=image_carousel_template)
+        line_bot_api.reply_message(event.reply_token, template_message)
                     
                 ]       
             )
