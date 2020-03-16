@@ -70,7 +70,7 @@ def handle_message(event):
                                     text="「イベントを作成」「記事を投稿」「本を登録」にタグ機能を追加しました。",
                                     actions=[{"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/5"}])]
              
-            messages = TextSendMessage, TemplateSendMessage(
+            messages = TemplateSendMessage(
                 alt_text= 'template',
                 template=CarouselTemplate(columns=notes),
                 
