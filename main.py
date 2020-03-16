@@ -60,10 +60,18 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(
                     text='下のメッセージから利用する施設を選択してください。',
-                    
-                    template_message = TemplateSendMessage(alt_text='友達追加ありがとう！\nまず、あなたの性別を教えてください。', template=buttons_template)
-                    line_bot_api.reply_message(event.reply_token, template_message)
-                    
+                    image_carousel_template = ImageCarouselTemplate(columns=[
+                        ImageCarouselColumn(image_url=https://tenpohacks.com/wp-content/uploads/sites/2/2014/12/imasia_6634387_S.jpg,
+                                            action=MessageAction(label='ショッピングセンター',
+                                                                 text='Shopping center')),
+                        ImageCarouselColumn(image_url=https://keihanna-mice-town.jp/convention/img/convention_kick_entrance.jpg,
+                                            action=MessageAction(label='科学技術センター',
+                                                                 text='Science & Technology center')),
+                        ImageCarouselColumn(image_url=https://s3-ap-northeast-1.amazonaws.com/static.amanaimages.com/imgroom/rf_preview640/10573/10573005969.jpg,
+                                            action=MessageAction(label='情報文化センター',
+                                                                 text='Media & Communication center'))
+                        ])
+                                                                 
                     quick_reply=QuickReply(
                         items=[
                         QuickReplyButton(
@@ -74,8 +82,7 @@ def handle_message(event):
                         ),
                         QuickReplyButton(
                             action=MessageAction(label="情報文化センター", text="Media & Communication center")
-                        ),
-                       
+                        ) 
                     ])))
                 
                 
