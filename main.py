@@ -59,20 +59,39 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token, [
                     TextSendMessage(text="下のメッセージから施設を選択してください。"),
-                    image_carousel_template = ImageCarouselTemplate(columns=[
-            　　　　　    ImageCarouselColumn(image_url='https://via.placeholder.com/1024x1024',
-                                             action=DatetimePickerAction(label='datetime',
-                                             data='datetime_postback',
-                                             mode='datetime')),
-                         ImageCarouselColumn(image_url='https://via.placeholder.com/1024x1024',
-                                             action=DatetimePickerAction(label='date',
-                                             data='date_postback',
-                                             mode='date'))
-                    
-                    ])
-        template_message = TemplateSendMessage(
-            alt_text='ImageCarousel alt text', template=image_carousel_template)
-        line_bot_api.reply_message(event.reply_token, template_message)
+                    {
+                      "type": "template",
+                      "altText": "this is a image carousel template",
+                      "template": {
+                          "type": "image_carousel",
+                          "columns": [
+                              {
+                                "imageUrl": "https://example.com/bot/images/item1.jpg",
+                                "action": {
+                                  "type": "postback",
+                                  "label": "Buy",
+                                  "data": "action=buy&itemid=111"
+                                }
+                              },
+                              {
+                                "imageUrl": "https://example.com/bot/images/item2.jpg",
+                                "action": {
+                                  "type": "message",
+                                  "label": "Yes",
+                                  "text": "yes"
+                                }
+                              },
+                              {
+                                "imageUrl": "https://example.com/bot/images/item3.jpg",
+                                "action": {
+                                  "type": "uri",
+                                  "label": "View detail",
+                                  "uri": "http://example.com/page/222"
+                                }
+                              }
+                          ]
+                      }
+                    }
                     
                 ]       
             )
