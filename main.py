@@ -63,13 +63,13 @@ def handle_message(event):
                     quick_reply=QuickReply(
                         items=[
                         QuickReplyButton(
-                            action=PostbackAction(label="ショッピングセンター", text="Shopping center")
+                            action=PostbackAction(label="ショッピングセンター", data="Shopping center")
                         ),
                         QuickReplyButton(
-                            action=PostbackAction(label="科学技術センター", text="Science & Technology center")
+                            action=PostbackAction(label="科学技術センター", data="Science & Technology center")
                         ),
                         QuickReplyButton(
-                            action=PostbackAction(label="情報文化センター", text="Media & Communication center")
+                            action=PostbackAction(label="情報文化センター", data="Media & Communication center")
                         ),
                     ])))
                 
