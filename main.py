@@ -59,14 +59,17 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(
-                    text='メニュー',
+                    text='下のメッセージから利用する施設を選択してください。',
                     quick_reply=QuickReply(
                         items=[
                         QuickReplyButton(
-                            action=PostbackAction(label="異性に質問してみる", data="異性に質問してみる")
+                            action=PostbackAction(label="ショッピングセンター", text="Shopping center")
                         ),
                         QuickReplyButton(
-                            action=PostbackAction(label="誰かの質問に答える", data="誰かの質問に答える")
+                            action=PostbackAction(label="科学技術センター", text="Science & Technology center")
+                        ),
+                        QuickReplyButton(
+                            action=PostbackAction(label="情報文化センター", text="Media & Communication center")
                         ),
                     ])))
                 
