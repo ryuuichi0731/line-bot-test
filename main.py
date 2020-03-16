@@ -60,14 +60,15 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(
                     text='下のメッセージから利用する施設を選択してください。',
+                    
                     image_carousel_template = ImageCarouselTemplate(columns=[
-                        ImageCarouselColumn(image_url=https://tenpohacks.com/wp-content/uploads/sites/2/2014/12/imasia_6634387_S.jpg,
+                        ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
                                             action=MessageAction(label='ショッピングセンター',
                                                                  text='Shopping center')),
-                        ImageCarouselColumn(image_url=https://keihanna-mice-town.jp/convention/img/convention_kick_entrance.jpg,
+                        ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
                                             action=MessageAction(label='科学技術センター',
                                                                  text='Science & Technology center')),
-                        ImageCarouselColumn(image_url=https://s3-ap-northeast-1.amazonaws.com/static.amanaimages.com/imgroom/rf_preview640/10573/10573005969.jpg,
+                        ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
                                             action=MessageAction(label='情報文化センター',
                                                                  text='Media & Communication center'))
                         ])
