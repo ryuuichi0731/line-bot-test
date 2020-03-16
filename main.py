@@ -58,8 +58,9 @@ def handle_message(event):
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
                 event.reply_token, [
-                    TextSendMessage(text="施設を選択してください"),
-                
+                    TextSendMessage(text="施設を選択してください")
+                ]
+            )
                     notes = [CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
                                             title="【ReleaseNote】トークルームを実装しました。",
                                             text="creation(創作中・考え中の何かしらのモノ・コト)に関して、意見を聞けるようにトークルーム機能を追加しました。",
@@ -79,8 +80,7 @@ def handle_message(event):
    
                     )
                     line_bot_api.reply_message(event.reply_token, messages=messages)
-                ]
-            )
+                
             
                 
 
