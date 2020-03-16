@@ -71,8 +71,7 @@ def handle_message(event):
                                             action=MessageAction(label='情報文化センター',
                                                                  text='Media & Communication center'))
                     ])
-                    template_message = TemplateSendMessage(
-                        alt_text='ImageCarousel alt text', template=image_carousel_template),
+                   
                     
                     
                     quick_reply=QuickReply(
