@@ -60,15 +60,15 @@ def handle_message(event):
                 event.reply_token, [
                     TextSendMessage(text="下のメッセージから施設を選択してください。"),
                     
-                    notes = [CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle02.jpg",
+                    notes = [CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
                                             title="【ReleaseNote】トークルームを実装しました。",
                                             text="creation(創作中・考え中の何かしらのモノ・コト)に関して、意見を聞けるようにトークルーム機能を追加しました。",
                                             actions=[{"type": "message","label": "サイトURL","text": "https://renttle.jp/notes/kota/7"}]),
-                             CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle03.jpg",
+                             CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
                                             title="ReleaseNote】創作中の活動を報告する機能を追加しました。",
                                             text="創作中や考え中の時点の活動を共有できる機能を追加しました。",
                                             actions=[{"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/6"}]),
-                             CarouselColumn(thumbnail_image_url="https://renttle.jp/static/img/renttle04.jpg",
+                             CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
                                             title="【ReleaseNote】タグ機能を追加しました。",
                                             text="「イベントを作成」「記事を投稿」「本を登録」にタグ機能を追加しました。",
                                             actions=[{"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/5"}])]
@@ -77,8 +77,7 @@ def handle_message(event):
                         alt_text='template',
                         template=CarouselTemplate(columns=notes),
                     )
-                    line_bot_api.reply_message(event.reply_token, messages=messages)
-                    
+              
                 ]       
             )
                 
