@@ -71,10 +71,10 @@ def handle_message(event):
                         ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
                                             action=MessageAction(label='情報文化センター',
                                                                  text='Media & Communication center'))
-                        ])
-                        template_message = TemplateSendMessage(
-                            alt_text='ImageCarousel alt text', template=image_carousel_template)
-                        line_bot_api.reply_message(event.reply_token, template_message),
+                    ])
+                    template_message = TemplateSendMessage(
+                        alt_text='ImageCarousel alt text', template=image_carousel_template)
+                    line_bot_api.reply_message(event.reply_token, template_message)
                     
                     quick_reply=QuickReply(
                         items=[
