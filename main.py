@@ -56,6 +56,7 @@ def callback():
 def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
+            TextMessage(text="下のメッセージから利用する施設を選択してください。"),
             notes = [CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
                                     title="【ReleaseNote】トークルームを実装しました。",
                                     text="creation(創作中・考え中の何かしらのモノ・コト)に関して、意見を聞けるようにトークルーム機能を追加しました。",
@@ -70,7 +71,7 @@ def handle_message(event):
                                     actions=[{"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/5"}])]
              
             messages = TemplateSendMessage(
-                alt_text='template',
+                alt_text= 'template',
                 template=CarouselTemplate(columns=notes),
             )
             line_bot_api.reply_message(event.reply_token, messages=messages)
