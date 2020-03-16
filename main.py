@@ -58,7 +58,6 @@ def handle_message(event):
         if (event.message.text == "施設を選択"):
             
             notes = [CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
-                                    
                                     title="【ReleaseNote】トークルームを実装しました。",
                                     text="creation(創作中・考え中の何かしらのモノ・コト)に関して、意見を聞けるようにトークルーム機能を追加しました。",
                                     actions=[{"type": "message","label": "サイトURL","text": "https://renttle.jp/notes/kota/7"}]),
@@ -69,13 +68,14 @@ def handle_message(event):
                                     actions=[{"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/6"}]),
                       
                      CarouselColumn(thumbnail_image_url="https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg",
-                                     title="【ReleaseNote】タグ機能を追加しました。",
-                                     text="「イベントを作成」「記事を投稿」「本を登録」にタグ機能を追加しました。",
-                                     actions=[{"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/5"}])]
+                                    title="【ReleaseNote】タグ機能を追加しました。",
+                                    text="「イベントを作成」「記事を投稿」「本を登録」にタグ機能を追加しました。",
+                                    actions=[{"type": "message", "label": "サイトURL", "text": "https://renttle.jp/notes/kota/5"}])]
              messages = TemplateSendMessage(
                  alt_text= 'template',
                  template=CarouselTemplate(columns=notes),
              )
+                
              line_bot_api.reply_message(event.reply_token, messages=messages)
                
                 
