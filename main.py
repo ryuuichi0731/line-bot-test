@@ -74,9 +74,8 @@ def handle_message(event):
                                                                         mode='date'))
                     ])
                     template_message = TemplateSendMessage(
-                        alt_text='ImageCarousel alt text', template=image_carousel_template)
-                    line_bot_api.reply_message(event.reply_token, template_message),
-      
+                        alt_text='ImageCarousel alt text', template=image_carousel_template),
+    
                     TextSendMessage(
                         text='下のメッセージから利用する施設を選択してください。',
                         quick_reply=QuickReply(
