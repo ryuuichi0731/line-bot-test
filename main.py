@@ -59,29 +59,35 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 messages[
-                TextSendMessage(
-                    text='下のメッセージから利用する施設を選択してください。')
+                    {     
+                        TextSendMessage(
+                            text='下のメッセージから利用する施設を選択してください。')
+                    },
+                    {
+                        
                     
-                    image_carousel_template = ImageCarouselTemplate(columns=[
-                        ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
-                                            action=DatetimePickerAction(label='ショッピングセンター',
-                                                                        data='datetime_postback',
-                                                                        mode='datetime')),
-                        ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
-                                            action=DatetimePickerAction(label='科学技術センター',
-                                                                        data='datetime_postback',
-                                                                        mode='datetime')),
-                        ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
-                                            action=DatetimePickerAction(label='情報文化センター',
-                                                                        data='datetime_postback',
-                                                                        mode='date'))
-                    ])
+                        image_carousel_template = ImageCarouselTemplate(columns=[
+                            ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
+                                                action=DatetimePickerAction(label='ショッピングセンター',
+                                                                            data='datetime_postback',
+                                                                            mode='datetime')),
+                            ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
+                                                action=DatetimePickerAction(label='科学技術センター',
+                                                                            data='datetime_postback',
+                                                                            mode='datetime')),
+                            ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
+                                                action=DatetimePickerAction(label='情報文化センター',
+                                                                            data='datetime_postback',
+                                                                            mode='date'))
+                        ])
+                        
                     
                     template_message = TemplateSendMessage(
                         alt_text='ImageCarousel alt text', template=image_carousel_template)
                     line_bot_api.reply_message(event.reply_token, template_message)
+                    },
                     
-                    
+                    {
                     quick_reply=QuickReply(
                         items=[
                         QuickReplyButton(
@@ -94,6 +100,7 @@ def handle_message(event):
                             action=MessageAction(label="情報文化センター", text="Media & Communication center")
                         ) 
                     ])))
+                    }
                 ]
             )
                 
