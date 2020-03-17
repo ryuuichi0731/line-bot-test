@@ -76,7 +76,7 @@ def handle_message(event):
                 alt_text='template',
                 template=CarouselTemplate(columns=notes),
             )
-            line_bot_api.reply_message(event.reply_token, messages=messages)
+            line_bot_api.reply_message(event.reply_token, messages=messages),
                     
                     
             line_bot_api.reply_message(
@@ -98,6 +98,7 @@ def handle_message(event):
                         ]
                     )
                 )
+            )
                 
             
                 
