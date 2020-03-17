@@ -98,6 +98,8 @@ def handle_message(event):
                             )
                         )
                     )
+                ]
+            )
                 
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
