@@ -59,9 +59,6 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 [
-                    TextSendMessage(
-                        text='下のメッセージから利用する施設を選択してください。'),     
-                    
                     image_carousel_template = ImageCarouselTemplate(columns=[
                         ImageCarouselColumn(image_url=https://pbs.twimg.com/media/CuJU08bUAAAjjpA.jpg,
                                             action=DatetimePickerAction(label='ショッピングセンター',
@@ -76,25 +73,31 @@ def handle_message(event):
                                                                         data='datetime_postback',
                                                                         mode='date'))
                     ]),
+                    
                     template_message = TemplateSendMessage(
                         alt_text='ImageCarousel alt text', template=image_carousel_template)
                     line_bot_api.reply_message(event.reply_token, template_message),
-                        
-                    quick_reply=QuickReply(
-                        items=[
-                        QuickReplyButton(
-                            action=MessageAction(label="ショッピングセンター", text="Shopping center")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="科学技術センター", text="Science & Technology center")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="情報文化センター", text="Media & Communication center")
+                    
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(
+                            text='下のメッセージから利用する施設を選択してください。',
+                            quick_reply=QuickReply(
+                                items=[
+                                    QuickReplyButton(
+                                        action=MessageAction(label="ショッピングセンター", text="Shopping center")
+                                    ),
+                                    QuickReplyButton(
+                                        action=MessageAction(label="科学技術センター", text="Science & Technology center")
+                                    ),
+                                    QuickReplyButton(
+                                        action=MessageAction(label="情報文化センター", text="Media & Communication center")
+                                    ),
+                                    )
+                                ]
+                            )
                         )
-                    ]),
-                ]
-            )
-                
+                    )
                 
     message_content = line_bot_api.get_message_content(event.message.id)
     with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
