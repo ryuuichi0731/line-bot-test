@@ -93,6 +93,7 @@ def handle_message(event):
                             action=MessageAction(label="情報文化センター", text="Media & Communication center")
                         ) 
                     ])))
+            )
                 
                 
     message_content = line_bot_api.get_message_content(event.message.id)
