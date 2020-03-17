@@ -57,7 +57,7 @@ def handle_message(event):
     if event.type == "message":
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
-                event.reply_token,
+                event.reply_token,[
                    
                 {    
                     TextSendMessage(
@@ -102,6 +102,7 @@ def handle_message(event):
                             ) 
                         ])))
                     }
+                ]
             )
                 
                 
