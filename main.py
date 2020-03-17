@@ -72,8 +72,7 @@ def handle_message(event):
                                             action=DatetimePickerAction(label='情報文化センター',
                                                                         data='datetime_postback',
                                                                         mode='date'))
-                    ]),
-                    
+                    ])
                     template_message = TemplateSendMessage(
                         alt_text='ImageCarousel alt text', template=image_carousel_template)
                     line_bot_api.reply_message(event.reply_token, template_message),
