@@ -58,6 +58,7 @@ def handle_message(event):
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
                 event.reply_token,
+                messages[
                 TextSendMessage(
                     text='下のメッセージから利用する施設を選択してください。')
                     
@@ -93,6 +94,7 @@ def handle_message(event):
                             action=MessageAction(label="情報文化センター", text="Media & Communication center")
                         ) 
                     ])))
+                ]
             )
                 
                 
