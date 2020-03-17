@@ -60,11 +60,11 @@ def handle_message(event):
                 event.reply_token,
                 [
                     
-                    {     
+                    (    
                         TextSendMessage(
                             text='下のメッセージから利用する施設を選択してください。')
-                    },
-                    {
+                    ),
+                    (
                         
                     
                         image_carousel_template = ImageCarouselTemplate(columns=[
@@ -86,9 +86,9 @@ def handle_message(event):
                     template_message = TemplateSendMessage(
                         alt_text='ImageCarousel alt text', template=image_carousel_template)
                     line_bot_api.reply_message(event.reply_token, template_message)
-                    },
+                    ),
                     
-                    {
+                    (
                     quick_reply=QuickReply(
                         items=[
                         QuickReplyButton(
@@ -101,7 +101,7 @@ def handle_message(event):
                             action=MessageAction(label="情報文化センター", text="Media & Communication center")
                         ) 
                     ])))
-                    }
+                    )
                 ]
             )
                 
