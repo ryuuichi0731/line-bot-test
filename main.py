@@ -76,25 +76,22 @@ def handle_message(event):
                     template_message = TemplateSendMessage(
                         alt_text='ImageCarousel alt text', template=image_carousel_template)
                     line_bot_api.reply_message(event.reply_token, template_message),
-                    
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(
-                            text='下のメッセージから利用する施設を選択してください。',
-                            quick_reply=QuickReply(
-                                items=[
-                                    QuickReplyButton(
-                                        action=MessageAction(label="ショッピングセンター", text="Shopping center")
-                                    ),
-                                    QuickReplyButton(
-                                        action=MessageAction(label="科学技術センター", text="Science & Technology center")
-                                    ),
-                                    QuickReplyButton(
-                                        action=MessageAction(label="情報文化センター", text="Media & Communication center")
-                                    ),
-                                    )
-                                ]
-                            )
+      
+                    TextSendMessage(
+                        text='下のメッセージから利用する施設を選択してください。',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="ショッピングセンター", text="Shopping center")
+                                ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="科学技術センター", text="Science & Technology center")
+                                ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="情報文化センター", text="Media & Communication center")
+                                ),
+                                )
+                            ]
                         )
                     )
                 ]
