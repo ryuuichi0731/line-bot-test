@@ -59,7 +59,7 @@ def handle_message(event):
             line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(
-                        text='下のメッセージから利用する施設を選択してください。',
+                        text='下の選択メニューの中からボタンをタップすれば音声による読み上げが可能です。',
                         quick_reply=QuickReply(
                             items=[
                             QuickReplyButton(
