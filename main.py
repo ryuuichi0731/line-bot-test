@@ -155,7 +155,7 @@ def handle_message(event):
                 TextSendMessage(text='案内を開始します。')
             )
     if event.type == "message":
-        if (event.message.text == "navigation_start"):
+        if (event.message.text == "navigation_cancel"):
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text='案内をキャンセルしました。')
