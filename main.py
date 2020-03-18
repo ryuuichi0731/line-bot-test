@@ -92,7 +92,8 @@ def handle_message(event):
                                     action=MessageAction(label="エントランス", text="Entrance")
                         ),
                     ])))
-    elif event.type == "message":
+           
+    if event.type == "message":
         if (event.message.text == "Science & Technology center"):
             line_bot_api.reply_message(
                     event.reply_token,
@@ -110,7 +111,7 @@ def handle_message(event):
                                     action=MessageAction(label="セミナールーム", text="Seminar Room")
                         ),
                     ])))
-    elif event.type == "message":
+    if event.type == "message":
         if (event.message.text == "Media & Communication center"):
             line_bot_api.reply_message(
                     event.reply_token,
