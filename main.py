@@ -77,6 +77,7 @@ def handle_message(event):
             event.reply_token,    
             TextSendMessage(        
                 text='返答内容を理解することができませんでした。大変申し訳ありませんが、別の回答をお試しください。')
+        )
             
 
     if event.type == "message":
@@ -139,6 +140,7 @@ def handle_message(event):
             event.reply_token,    
             TextSendMessage(        
                 text='返答内容を理解することができませんでした。大変申し訳ありませんが、別の回答をお試しください。')
+        )
     
 
     if event.type == "message":
@@ -173,6 +175,7 @@ def handle_message(event):
             event.reply_token,    
             TextSendMessage(        
                 text='返答内容を理解することができませんでした。大変申し訳ありませんが、別の回答をお試しください。')
+        )
                       
                 
     message_content = line_bot_api.get_message_content(event.message.id)
