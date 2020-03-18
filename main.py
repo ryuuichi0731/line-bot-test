@@ -73,8 +73,7 @@ def handle_message(event):
                         ),
                     ])))
             
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
+
     if event.type == "message":
         if (event.message.text == "Shopping center"):
             line_bot_api.reply_message(
@@ -132,8 +131,7 @@ def handle_message(event):
     else:
         return
     
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
+
     if event.type == "message":
         if (event.message.text == "floor1 Toilet") or (event.message.text == "Restaurant") or (event.message.text == "Entrance") or (event.message.text == "Multipurpose　Toilet") or (event.message.text == "Main Hall") or (event.message.text == "Seminar Room") or (event.message.text == "floor3 Toilet") or (event.message.text == "Elevator") or (event.message.text == "Conference Room"):
             line_bot_api.reply_message(
