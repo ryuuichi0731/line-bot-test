@@ -59,7 +59,7 @@ def handle_message(event):
             line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(
-                        text='下に表示されている施設名がかかれた、ボタンをタップして選択してください。',
+                        text='下に表示されている施設名が書かれた、ボタンをタップして選択してください。',
                         quick_reply=QuickReply(
                             items=[
                                 QuickReplyButton(
@@ -72,6 +72,97 @@ def handle_message(event):
                                     action=MessageAction(label="情報文化センター", text="Media & Communication center")
                         ),
                     ])))
+            
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    if event.type == "message":
+        if (event.message.text == "Shopping center"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='下に表示されている目的地が書かれた、ボタンをタップして選択してください。',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="１階 トイレ", text="floor1 Toilet")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="レストラン", text="Restaurant")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="エントランス", text="Entrance")
+                        ),
+                    ])))
+    elif event.type == "message":
+        if (event.message.text == "Science & Technology center"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='下に表示されている目的地が書かれた、ボタンをタップして選択してください。',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="多目的 トイレ", text="Multipurpose　Toilet")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="メインホール", text="Main Hall")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="セミナールーム", text="Seminar Room")
+                        ),
+                    ])))
+    elif event.type == "message":
+        if (event.message.text == "Media & Communication center"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='下に表示されている目的地が書かれた、ボタンをタップして選択してください。',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="フロア３ トイレ", text="floor3 Toilet")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="エレベーター", text="Elevator")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="会議室", text="Conference Room")
+                        ),
+                    ])))
+    else:
+        return
+    
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    if event.type == "message":
+        if (event.message.text == "floor1 Toilet") or (event.message.text == "Restaurant") or (event.message.text == "Entrance") or (event.message.text == "Multipurpose　Toilet") or (event.message.text == "Main Hall") or (event.message.text == "Seminar Room") or (event.message.text == "floor3 Toilet") or (event.message.text == "Elevator") or (event.message.text == "Conference Room"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='選択した目的地までの案内を開始してよろしいですか。下のメッセージから選択してください。',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="案内をはじめる", text="navigation_start")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="案内をキャンセル", text="navigation_cancel")
+                        ),
+                    ])))
+    elif event.type == "message":
+        if (event.message.text == "navigation_start"):
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text='案内を開始します。')
+            )
+    elif event.type == "message":
+        if (event.message.text == "navigation_start"):
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text='案内をキャンセルしました。')
+            )
+    else:
+        return
                       
                 
     message_content = line_bot_api.get_message_content(event.message.id)
