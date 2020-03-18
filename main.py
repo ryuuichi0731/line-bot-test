@@ -58,20 +58,20 @@ def handle_message(event):
         if (event.message.text == "施設を選択"):
             line_bot_api.reply_message(
                     event.reply_token,
-                    
-                        
-                    quick_reply=QuickReply(
-                        items=[
-                        QuickReplyButton(
-                            action=MessageAction(label="ショッピングセンター", text="Shopping center")
+                    TextSendMessage(
+                        text='下に表示されている施設名がかかれた、ボタンをタップして選択してください。',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="ショッピングセンター", text="Shopping center")
                         ),
-                        QuickReplyButton(
-                            action=MessageAction(label="科学技術センター", text="Science & Technology center")
+                                QuickReplyButton(
+                                    action=MessageAction(label="科学技術センター", text="Science & Technology center")
                         ),
-                        QuickReplyButton(
-                            action=MessageAction(label="情報文化センター", text="Media & Communication center")
+                                QuickReplyButton(
+                                    action=MessageAction(label="情報文化センター", text="Media & Communication center")
                         ),
-                    ]))
+                    ])))
                       
                 
     message_content = line_bot_api.get_message_content(event.message.id)
