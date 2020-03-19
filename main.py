@@ -159,6 +159,12 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text='案内をキャンセルしました。')
             )
+    if event.type == "message":
+        if (event.message.text == "コールセンターにつなぐ"):
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text='コールセンターには、下記の番号でお問い合わせください。Tel: 000-111-000 受付可能な時間帯は、 平日午前00時から午後00時まで。土日、祝日は受け付けておりませんのでご注意下さい。')
+            )
         else:
             line_bot_api.reply_message( 
                 event.reply_token,    
