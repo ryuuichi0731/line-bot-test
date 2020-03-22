@@ -63,7 +63,7 @@ def handle_message(event):
                         quick_reply=QuickReply(
                             items=[
                                 QuickReplyButton(
-                                    action=MessageAction(label="ワイルドなスパイスの刺激的な香り・オレガノ", text="Shopping center")
+                                    action=MessageAction(label="ワイルドなスパイス", text="Shopping center")
                         ),
                                 QuickReplyButton(
                                     action=MessageAction(label="科学技術センター", text="Science & Technology center")
