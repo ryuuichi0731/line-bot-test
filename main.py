@@ -171,7 +171,7 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text='利用したい施設のクーポンを、したの選択肢から選んでください。\n選択肢は１から３まであります。')
         
-        )
+            )
     else:
         line_bot_api.reply_message( 
             event.reply_token,    
