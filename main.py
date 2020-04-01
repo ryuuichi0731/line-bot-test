@@ -167,12 +167,7 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text='コールセンターには、下記の番号でお問い合わせください。\nTel: 000-111-000。\n受付可能な時間帯は、平日午前00時から午後00時まで。\n土日、祝日は受け付けておりませんのでご注意下さい。')
             )
-    if event.type == "message":
-        if (event.message.text == "クーポンを選ぶ"):
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text='下のメッセージから施設の選択を行ってください。選択肢は１から３まであります。')
-            )
+   
    
                 
     
