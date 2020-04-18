@@ -22,6 +22,13 @@ from linebot.models import (
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
     SeparatorComponent, QuickReply, QuickReplyButton
 )
+from linebot.models import (
+    ImagemapArea,
+    ImagemapSendMessage,
+    URIImagemapAction,
+    MessageImagemapAction,
+    Video, BaseSize, ExternalLink,
+)
 import os
 import json
 
