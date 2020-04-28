@@ -160,7 +160,7 @@ def handle_message(event):
         if (event.message.text == "navigation_start"):
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text='案内を開始します。ガイドケーンが案内を開始します。')
+                TextSendMessage(text='目的地の設定が完了しました。ガイドケーンが案内を開始します。')
             )
     if event.type == "message":
         if (event.message.text == "navigation_cancel"):
