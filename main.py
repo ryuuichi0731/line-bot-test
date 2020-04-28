@@ -63,7 +63,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if (event.message.text == "施設を選択"):
+        if (event.message.text == "目的地を選ぶ"):
             line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(
@@ -160,19 +160,19 @@ def handle_message(event):
         if (event.message.text == "navigation_start"):
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text='案内を開始します。')
+                TextSendMessage(text='案内を開始します。ガイドケーンが案内を開始します。')
             )
     if event.type == "message":
         if (event.message.text == "navigation_cancel"):
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text='案内をキャンセルしました。')
+                TextSendMessage(text='案内をキャンセルしました。もう一度試す場合は、再度メニューボタンから目的地を選んでください。')
             )
     if event.type == "message":
         if (event.message.text == "コールセンターにつなぐ"):
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text='コールセンターには、下記の番号でお問い合わせください。\nTel: 000-111-000。\n受付可能な時間帯は、平日午前00時から午後00時まで。\n土日、祝日は受け付けておりませんのでご注意下さい。')
+                TextSendMessage(text='コールセンターには、下記の番号でお問い合わせください。\nTel: 111-000-000。\n受付可能な時間帯は、平日午前00時から午後00時まで。\n土日、祝日は受け付けておりませんのでご注意下さい。')
             )
    
    
