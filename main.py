@@ -77,7 +77,7 @@ def handle_message(event):
                                     action=MessageAction(label="科学技術センター", text="Science & Technology center")
                         ),
                                 QuickReplyButton(
-                                    action=MessageAction(label="ガイドケーンサポートセンター", text="Media & Communication center")
+                                    action=MessageAction(label="ガイドケーンサポートセンター", text="Guide cane support center")
                         ),
                     ])))
        
@@ -121,7 +121,7 @@ def handle_message(event):
                     ])))
     
     if event.type == "message":
-        if (event.message.text == "Media & Communication center"):
+        if (event.message.text == "Guide cane support center"):
             line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(
