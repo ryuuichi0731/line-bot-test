@@ -77,7 +77,7 @@ def handle_message(event):
                                     action=MessageAction(label="科学技術センター", text="Science & Technology center")
                         ),
                                 QuickReplyButton(
-                                    action=MessageAction(label="情報文化センター", text="Media & Communication center")
+                                    action=MessageAction(label="ガイドケーンサポートセンター", text="Media & Communication center")
                         ),
                     ])))
        
